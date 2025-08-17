@@ -1,0 +1,74 @@
+Convierte el siguiente archivo JSON raw a un archivo JavaScript válido que pueda ser usado con la directiva @require en userscripts. Sigue estas instrucciones específicas:
+
+1. Estructura del archivo:
+
+Crea un archivo JavaScript que exponga los datos globalmente
+
+Usa window.NOMBRE_VARIABLE = datos; para hacer los datos accesibles
+
+Envuelve todo en una función autoejecutable para evitar conflictos
+
+2. Funciones a incluir:
+
+Agrega una función getData() que retorne los datos
+
+Agrega una función parseData() que permita filtrar/buscar en los datos
+
+Agrega una función getRandomItem() que retorne un elemento aleatorio
+
+Incluye validación de datos con try/catch
+
+3. Formato de salida:
+
+javascript
+// ==UserScript==
+// @name         Nombre Data Library
+// @namespace    tu-namespace
+// @version      1.0
+// @description  Biblioteca de datos para userscripts
+// @author       Tu-Autor
+// @license      MIT
+// ==/UserScript==
+
+(function() {
+    'use strict';
+    
+    // DATOS CONVERTIDOS AQUÍ (omitir cualquier comentario que diga "//pegar contenido aqui")
+    const DATA = [/* datos convertidos del JSON */];
+    
+    // FUNCIONES DE UTILIDAD
+    window.LIBRERIA_DATOS = {
+        getData: function() { /* función aquí */ },
+        parseData: function(filter) { /* función aquí */ },
+        getRandomItem: function() { /* función aquí */ },
+        findById: function(id) { /* función aquí */ }
+    };
+    
+    // Hacer datos disponibles globalmente
+    window.DATA_ARRAY = DATA;
+    
+    console.log('📚 Biblioteca de datos cargada:', DATA.length, 'elementos');
+})();
+4. Requisitos específicos:
+
+NO incluyas comentarios que contengan "//pegar contenido aqui"
+
+Convierte el JSON usando JSON.parse() si es necesario para validación
+
+Agrega manejo de errores con try/catch
+
+Incluye una función de búsqueda que funcione con strings o regex
+
+Asegúrate de que el código sea compatible con Tampermonkey/Greasemonkey
+
+5. Ejemplo de uso esperado:
+Después de usar @require, debería funcionar así:
+
+javascript
+// En el script principal:
+const datos = LIBRERIA_DATOS.getData();
+const aleatorio = LIBRERIA_DATOS.getRandomItem();
+const filtrados = LIBRERIA_DATOS.parseData(item => item.includes('texto'));
+JSON a convertir:
+[AQUÍ PEGAS TU JSON RAW]
+
