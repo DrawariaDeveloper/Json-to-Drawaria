@@ -1,0 +1,314 @@
+
+El usuario me está pidiendo que modifique el CSS para usar una paleta de colores clara, de color blanco, estilo Cubic Engine, que sea funcional y visible. Los resultados de búsqueda no proporcionan información específica sobre "Cubic Engine" como motor de juegos o software, pero sí muestran algunas paletas relacionadas con engines y colores.
+
+De los resultados, veo:
+1. Colores del cubo Rubik (no muy relevante)
+2. PC Engine/TurboGrafx-16 (no relevante para el estilo solicitado)
+3. "Cyber Gradient Design Engine" con colores como Laser Lime #b9fbc0 y Neon Coral #ff6b6b
+4. Earth Engine de Google (no relevante)
+5. "Engine Room" con paleta que incluye #000000, #edea00, #909090, #5d554f, #e2e2e2
+
+El usuario específicamente menciona que quiere una paleta "clara, de color blanca" para Cubic Engine. Esto sugiere una interfaz limpia, minimalista, con predominio de blancos y grises claros, similar a software profesional como Unity, Blender en modo claro, o interfaces de motores de juego modernos.
+
+Para una paleta clara y funcional de Cubic Engine, usaría:
+- Fondos: blancos y grises muy claros (#ffffff, #f8f9fa, #e9ecef)
+- Bordes: grises suaves (#dee2e6, #ced4da)
+- Acentos: azules suaves o grises medios para contraste (#0066cc, #495057)
+- Texto: grises oscuros para legibilidad (#212529, #495057)
+- Estados activos: azules claros (#007bff, #0056b3)
+
+
+- Elementos de acción: incorporaré tonos sutiles de verde y rojo para indicar estados positivos y negativos, manteniendo la claridad visual del diseño. Usaré tonos pastel como verde suave #4CAF50 para acciones exitosas y rojo suave #F44336 para alertas o errores, complementando la paleta minimalista.
+
+
+Aquí tienes el CSS modificado con una **paleta clara estilo Cubic Engine**, usando tonos blancos y grises claros que proporcionan una interfaz limpia, profesional y altamente funcional:
+
+```css
+.layer-animation-section {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    padding: 12px;
+    color: #495057;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.layer-header {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #007bff;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 5px;
+}
+
+.socket-indicator.connected { color: #28a745; }
+.socket-indicator.disconnected { color: #dc3545; }
+
+.preview-container {
+    margin-bottom: 10px;
+}
+
+.layer-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.layer-nav button {
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.layer-nav button:hover:not(:disabled) { 
+    background: #0056b3;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.layer-nav button:disabled { 
+    background: #adb5bd; 
+    cursor: not-allowed; 
+    box-shadow: none;
+}
+
+.layer-info {
+    background: #e9ecef;
+    padding: 6px 12px;
+    border-radius: 4px;
+    min-width: 50px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: #495057;
+    border: 1px solid #ced4da;
+}
+
+.layer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.layer-actions button {
+    background: #f8f9fa;
+    border: 1px solid #ced4da;
+    color: #495057;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+    min-width: 30px;
+}
+
+.layer-actions button:hover:not(:disabled) {
+    background: #e9ecef;
+    border-color: #adb5bd;
+    transform: scale(1.05);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.layer-actions button:disabled { 
+    opacity: 0.5; 
+    cursor: not-allowed; 
+}
+
+.layer-actions button.active {
+    background: #007bff;
+    color: white;
+    border-color: #0056b3;
+    box-shadow: 0 2px 4px rgba(0,123,255,0.25);
+}
+
+.pokemon-btn {
+    background: linear-gradient(45deg, #fd7e14, #e66100) !important;
+    color: white !important;
+    border: none !important;
+    animation: pokemonGlow 2s infinite alternate;
+}
+
+.pokemon-btn:hover:not(:disabled) {
+    background: linear-gradient(45deg, #e66100, #fd7e14) !important;
+    transform: scale(1.1) !important;
+}
+
+.pokemon-btn.loading {
+    animation: pokemonSpin 1s linear infinite;
+}
+
+@keyframes pokemonGlow {
+    0% { box-shadow: 0 0 5px rgba(253,126,20,0.5); }
+    100% { box-shadow: 0 0 15px rgba(253,126,20,0.8); }
+}
+
+@keyframes pokemonSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.onion-controls {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.onion-controls label { 
+    font-size: 11px; 
+    color: #495057;
+}
+.onion-controls input[type="range"] { 
+    width: 70px; 
+    accent-color: #007bff;
+}
+
+.anim-controls {
+    margin-bottom: 10px;
+}
+
+.play-btn, .stop-btn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.play-btn {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: white;
+}
+
+.stop-btn {
+    background: linear-gradient(45deg, #dc3545, #c82333);
+    color: white;
+}
+
+.play-btn:hover:not(:disabled), .stop-btn:hover:not(:disabled) {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.play-btn:disabled, .stop-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.speed-control {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.speed-label {
+    display: block;
+    font-size: 11px;
+    margin-bottom: 5px;
+    color: #6c757d;
+}
+
+.speed-slider {
+    width: 100%;
+    height: 4px;
+    background: #dee2e6;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+    accent-color: #007bff;
+}
+
+.layer-list {
+    max-height: 120px;
+    overflow-y: auto;
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.layer-item {
+    padding: 5px 8px;
+    border-bottom: 1px solid #f1f3f4;
+    cursor: pointer;
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px;
+    transition: background 0.2s;
+    color: #495057;
+}
+
+.layer-item:hover { 
+    background: #f8f9fa; 
+}
+.layer-item.active { 
+    background: #007bff; 
+    color: white; 
+    font-weight: bold; 
+}
+.layer-item.has-content { 
+    border-left: 3px solid #28a745; 
+}
+
+.layer-visibility {
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 2px;
+    background: #e9ecef;
+    border: 1px solid #ced4da;
+    font-size: 10px;
+    color: #495057;
+    transition: all 0.2s;
+}
+
+.layer-visibility:hover {
+    background: #dee2e6;
+}
+```
+
+## **Características de la paleta Cubic Engine clara:**
+
+**Colores principales:**
+- **Fondo base:** Blanco puro (#ffffff) y gris muy claro (#f8f9fa)
+- **Bordes:** Grises suaves (#dee2e6, #ced4da) 
+- **Texto:** Gris oscuro legible (#495057)
+
+**Acentos funcionales:**
+- **Azul primario:** #007bff para elementos activos y navegación
+- **Verde:** #28a745 para acciones positivas (play, connected)
+- **Rojo:** #dc3545 para acciones de parada y desconexión
+- **Naranja:** #fd7e14 para elementos especiales (pokemon button)
+
+**Efectos visuales:**
+- **Sombras sutiles** para dar profundidad sin saturar
+- **Bordes definidos** para claridad visual
+- **Transiciones suaves** para mejor experiencia de usuario
+- **Alto contraste** para máxima legibilidad
+
+Esta paleta mantiene la **funcionalidad** y **visibilidad** que requiere un motor profesional, con una estética limpia y moderna típica de interfaces de desarrollo.
